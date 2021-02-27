@@ -1,9 +1,11 @@
 const express = require('express');
 const blogRouter = express.Router();
-const blogController = require('../controllers/blog-contorller');
-const blogContorller = require('../controllers/blog-contorller');
+const blogController = require('../controllers/blog-controller');
+
 
 blogRouter.get('/', blogController.feed);
-blogRouter.get('/add', blogContorller.add)
+blogRouter.get('/add', blogController.addRender);
+
+blogRouter.post('/add', blogController.addHandler);
 
 module.exports = blogRouter;

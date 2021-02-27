@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Блог: </h1>
+
+    {{#each posts}}
+        <div style="border: 1px solid black; margin: 30px 40px 30px 40px">
+            <h2>{{this.title}}</h2>
+            <p>{{this.text}}</p>
+            <br>
+            <p>{{this.date}}</p>
+        </div>
+    {{/each}}
+</body>
+</html>
