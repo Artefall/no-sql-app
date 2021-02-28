@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const hbs = require('hbs');
 const cookieParser = require('cookie-parser');
 const path = require('path');
-const exphbs = require('express-handlebars');
 
 const homeRouter = require('../routers/home-router');
 const blogRouter = require('../routers/blog-router');
