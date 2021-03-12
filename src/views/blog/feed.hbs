@@ -8,13 +8,56 @@
 <body>
     <h1>Блог: </h1>
 
-    {{#each posts}}
-        <div style="border: 1px solid black; margin: 30px 40px 30px 40px">
-            <h2>{{this.title}}</h2>
-            <p>{{this.text}}</p>
-            <br>
-            <p>{{this.date}}</p>
-        </div>
-    {{/each}}
+    <h2>Поиск: </h2>
+
+    <input type="text" id="searchInput">
+
+    <div id="postContainer">
+        {{#each posts}}
+            <div style="border: 1px solid black; margin: 30px 40px 30px 40px">
+                <h2>{{this.title}}</h2>
+                <p>{{this.text}}</p>
+                <br>
+                <p>{{this.date}}</p>
+            </div>
+        {{/each}}
+    </div>
+
+    <script>
+
+        function updatePosts(searchedString){
+            const postContainer = document.getElementById('postContainer');
+            postContainer.innerHTML = '';
+
+            fetch(`/blog/api?searchedString=${searchedString.target.value}`)
+                        .then(response => {
+                            postContainer.innerHTML = ''
+                            response.json()
+                                        .then(searchedPosts => {
+                                            
+                                            const serialized = JSON.parse(searchedPosts);
+
+                                            serialized.forEach(post => {
+                                                postContainer.innerHTML += (`
+                                                    <div style="border: 1px solid black; margin: 30px 40px 30px 40px">
+                                                        <h2>${post.title}</h2>
+                                                        <p>${post.text}</p>
+                                                        <br>
+                                                        <p>${post.date}</p>
+                                                    </div>
+                                                `);
+                                            });
+                                        })
+                                        .catch(console.log);
+                            
+                            }).catch(console.log)
+
+        }
+
+        const searchInput = document.getElementById('searchInput');
+
+        searchInput.addEventListener('input', updatePosts);
+
+    </script>
 </body>
 </html>
