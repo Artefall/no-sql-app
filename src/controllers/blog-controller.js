@@ -5,7 +5,7 @@ module.exports = {
     feed: (req, res) => {
         Post.find()
             .then(posts =>  res.render("blog/feed.hbs", {posts: posts}))
-            .catch(err => console.log(`Error occured while downloaded posts`));  
+            .catch(err => console.log(`Error occured while downloaded posts!`));  
     },
     
     addRender: (req,res) => {
