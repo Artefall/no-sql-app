@@ -8,5 +8,6 @@ blogRouter.get('/add', blogController.addRender);
 blogRouter.get('/api', blogController.searchPost);
 
 blogRouter.post('/add', blogController.addHandler);
+//blogRouter.post('/delete', blogController.deletePost);
 
 module.exports = blogRouter;

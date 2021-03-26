@@ -36,4 +36,8 @@ module.exports = {
                 .catch(console.log);
 
     }
+
+    // deletePost: (req,res) => {
+        
+    // }
 }

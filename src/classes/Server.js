@@ -6,8 +6,8 @@ const path = require('path');
 
 const homeRouter = require('../routers/home-router');
 const blogRouter = require('../routers/blog-router');
-const shopRouter = require('../routers/shop-router');
-const userRouter = require('../routers/user-router');
+//const shopRouter = require('../routers/shop-router');
+//const userRouter = require('../routers/user-router');
 
 class Server {
     constructor(port){
@@ -26,8 +26,8 @@ class Server {
         this.app.use(express.static(this.PATH_TO_VIEWS));
         this.app.use('/', homeRouter);
         this.app.use('/blog', blogRouter);
-        this.app.use('/shop', shopRouter);
-        this.app.use('/users', userRouter);
+        // this.app.use('/shop', shopRouter);
+        // this.app.use('/users', userRouter);
 
     }
 
