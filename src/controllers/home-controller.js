@@ -7,6 +7,8 @@ module.exports = {
         axios.get(BANK_API_URL).then(response => {
             const USD_ID = 26;
             res.send(`Курс доллара: ${response.data[USD_ID].rate}`);
-        }).catch(res.send);
+        }).catch(() => {
+            
+        });
     }
 }
